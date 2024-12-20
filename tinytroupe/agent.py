@@ -60,7 +60,16 @@ from llama_index.readers.web import SimpleWebPageReader
 ##    model_name="BAAI/bge-small-en-v1.5"
 ##)
 
-llmaindex_openai_embed_model = OpenAIEmbedding(model=default["embedding_model"], embed_batch_size=10)
+from llama_index.embeddings.openai.base import OpenAIEmbeddingModelType
+
+# Custom model name
+custom_model_name = default["embedding_model"]
+
+# Check if the model is a valid OpenAIEmbeddingModelType, otherwise use the custom model name directly
+if custom_model_name in [m.value for m in OpenAIEmbeddingModelType]:
+    llmaindex_openai_embed_model = OpenAIEmbedding(model=custom_model_name, embed_batch_size=10)
+else:
+    llmaindex_openai_embed_model = OpenAIEmbedding(model=custom_model_name, embed_batch_size=10, additional_kwargs={"model_name": custom_model_name})
 Settings.embed_model = llmaindex_openai_embed_model
 ###############################################################################
 

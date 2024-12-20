@@ -1,5 +1,6 @@
 import os
 import configparser
+import requests
 
 class APIClient:
     def __init__(self):

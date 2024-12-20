@@ -1,0 +1,151 @@
+
+# 2024-12-19 20:49:48.293567
++y
+
+# 2024-12-19 20:50:29.585800
++/run ollama serve
+
+# 2024-12-19 20:50:40.105260
++n
+
+# 2024-12-19 20:50:56.137064
++/run ollama serve
+
+# 2024-12-19 20:53:37.151150
++/help
+
+# 2024-12-19 20:55:21.747761
++/ask How would I get this to work with Ollama? Most open source projects that depend on LLM chat completions have an option to use a custom openai base url in an env file so i can easily enter the ollama local endpoint, but I don't see an option for that in this.
+
+# 2024-12-19 20:56:49.720761
++/add docs/
+
+# 2024-12-19 20:57:16.098301
++/add .env.local
+
+# 2024-12-19 20:57:33.126355
++/add examples\product_brainstorming.ipynb
+
+# 2024-12-19 20:57:57.409963
++/add examples\config.ini
+
+# 2024-12-19 20:58:21.966285
++/add tinytroupe\config.ini
+
+# 2024-12-19 20:59:33.135997
++Can you help me modify this to work with Ollama? The instructions and env setup dont have an option for a custom openai base url like most of these open source projects that rely on LLM api calls.
+
+# 2024-12-19 20:59:58.260672
++/drop docs/
+
+# 2024-12-19 21:00:26.264498
++/drop docs\
+
+# 2024-12-19 21:00:54.854000
++Can you help me modify this to work with Ollama? The instructions and env setup dont have an option for a custom 
++ openai base url like most of these open source projects that rely on LLM api calls
+
+# 2024-12-19 21:01:39.126601
++y
+
+# 2024-12-19 21:02:30.982490
++Can you modify the readme to include instructions for using ollama
+
+# 2024-12-19 21:02:55.396419
++/add README.md
+
+# 2024-12-19 21:03:04.328321
++I added the readme for you
+
+# 2024-12-19 21:06:00.229400
++y
+
+# 2024-12-19 21:08:21.565859
++/ask so if i want to use an example, which config file do i use to do that? if possible can you modify my config file with the default ollama base url?
+
+# 2024-12-19 21:10:21.984666
++ Can u make sure this will work with ollama model names? Sometimes projects like this check if model names are on a list of openai models or not
+
+# 2024-12-19 21:13:33.533443
++While running the product brainstorming example, i ran into this error. """---------------------------------------------------------------------------
++ValueError                                Traceback (most recent call last)
++Cell In[1], line 6
++      3 sys.path.append('..')
++      5 import tinytroupe
++----> 6 from tinytroupe.agent import TinyPerson
++      7 from tinytroupe.environment import TinyWorld, TinySocialNetwork
++      8 from tinytroupe.examples import *
++
++File s:\TinyTroupeOllama\examples\..\tinytroupe\agent.py:63
++     54 from llama_index.readers.web import SimpleWebPageReader
++     57 # this will be cached locally by llama-index, in a OS-dependend location
++     58 
++     59 ##Settings.embed_model = HuggingFaceEmbedding(
++     60 ##    model_name="BAAI/bge-small-en-v1.5"
++     61 ##)
++---> 63 llmaindex_openai_embed_model = OpenAIEmbedding(model=default["embedding_model"], embed_batch_size=10)
++     64 Settings.embed_model = llmaindex_openai_embed_model
++     65 ###############################################################################
++
++File s:\TinyTroupeOllama\.venv\Lib\site-packages\llama_index\embeddings\openai\base.py:301, in OpenAIEmbedding.__init__(self, mode, model, embed_batch_size, dimensions, additional_kwargs, api_key, api_base, api_version, max_retries, timeout, reuse_client, callback_manager, default_headers, http_client, async_http_client, num_workers, **kwargs)
++    293     additional_kwargs["dimensions"] = dimensions
++    295 api_key, api_base, api_version = self._resolve_credentials(
++    296     api_key=api_key,
++    297     api_base=api_base,
++    298     api_version=api_version,
++    299 )
++--> 301 query_engine = get_engine(mode, model, _QUERY_MODE_MODEL_DICT)
++    302 text_engine = get_engine(mode, model, _TEXT_MODE_MODEL_DICT)
++    304 if "model_name" in kwargs:
++
++File s:\TinyTroupeOllama\.venv\Lib\site-packages\llama_index\embeddings\openai\base.py:204, in get_engine(mode, model, mode_model_dict)
++    198 def get_engine(
++    199     mode: str,
++    200     model: str,
++    201     mode_model_dict: Dict[Tuple[OpenAIEmbeddingMode, str], OpenAIEmbeddingModeModel],
++    202 ) -> str:
++    203     """Get engine."""
++--> 204     key = (OpenAIEmbeddingMode(mode), OpenAIEmbeddingModelType(model))
++    205     if key not in mode_model_dict:
++    206         raise ValueError(f"Invalid mode, model combination: {key}")
++
++File ~\AppData\Local\Programs\Python\Python311\Lib\enum.py:714, in EnumType.__call__(cls, value, names, module, qualname, type, start, boundary)
++    689 """
++    690 Either returns an existing member, or creates a new enum class.
++    691 
++   (...)
++    711 `type`, if set, will be mixed in as the first base class.
++    712 """
++    713 if names is None:  # simple value lookup
++--> 714     return cls.__new__(cls, value)
++    715 # otherwise, functional API: we're creating a new Enum type
++    716 return cls._create_(
++    717         value,
++    718         names,
++   (...)
++    723         boundary=boundary,
++    724         )
++
++File ~\AppData\Local\Programs\Python\Python311\Lib\enum.py:1137, in Enum.__new__(cls, value)
++   1135 ve_exc = ValueError("%r is not a valid %s" % (value, cls.__qualname__))
++   1136 if result is None and exc is None:
++-> 1137     raise ve_exc
++   1138 elif exc is None:
++   1139     exc = TypeError(
++   1140             'error in %s._missing_: returned %r instead of None or a valid member'
++   1141             % (cls.__name__, result)
++   1142             )
++
++ValueError: 'mxbai-embed-large:latest' is not a valid OpenAIEmbeddingModelType"""
+
+# 2024-12-19 21:14:09.288441
++y
+
+# 2024-12-19 21:14:38.541488
++/ask do i need to run 'pip install -e .' again before i re try
+
+# 2024-12-19 21:16:13.634656
++can you please fix the errors in the product brainstorming notebook? you should be able to see the error output
+
+# 2024-12-19 21:20:16.550939
++Please restore the product brainstorming notebook to its original state.

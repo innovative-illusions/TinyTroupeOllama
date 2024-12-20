@@ -177,3 +177,42 @@
 
 # 2024-12-20 00:26:29.721753
 +looks like you goot stuck. can you try again
+
+# 2024-12-20 00:30:20.317717
++I tried running the product brainstorming notebook again and i had the same error. Can you try modifying tinytroupe to use requests instead of the openai library? I think that is the issue
+
+# 2024-12-20 00:47:00.662189
++Looks like you got stuck on the last file edit you were working on. Can you retry?
+
+# 2024-12-20 01:00:13.041828
++Can you please atttempt to finish the last file edit you were working on? I had to interrupt the process because you got stuck on line 1083 for a long time
+
+# 2024-12-20 01:01:29.755791
++/add examples\
+
+# 2024-12-20 01:01:43.427149
++/add tinytroupe\config.ini
+
+# 2024-12-20 01:03:16.001800
++My apologies, it seems like you dont have access to the chat history. You froze while working on setting up ollama support in tinytroupe. I am trying to replace the use of the openai package with requests bc the openai package doesnt take any non openai embedding model names.
+
+# 2024-12-20 01:04:01.965213
++/models
+
+# 2024-12-20 01:04:13.066581
++/models ollama
+
+# 2024-12-20 01:04:32.584248
++/model ollama/tulu3
+
+# 2024-12-20 01:04:43.320638
++hi
+
+# 2024-12-20 01:09:12.920049
++modify tinytroupe to use requests instead of openai
+
+# 2024-12-20 01:09:41.846487
++/add examples\
+
+# 2024-12-20 01:09:48.937079
++/add .env

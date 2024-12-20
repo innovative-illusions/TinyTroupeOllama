@@ -149,3 +149,18 @@
 
 # 2024-12-19 21:20:16.550939
 +Please restore the product brainstorming notebook to its original state.
+
+# 2024-12-20 00:16:08.881781
++/add examples\product_brainstorming.ipynb
+
+# 2024-12-20 00:16:17.597426
++/add examples\config.ini
+
+# 2024-12-20 00:16:24.945722
++/add tinytroupe\config.ini
+
+# 2024-12-20 00:16:29.281239
++Can you please help me to get this project working with ollama as the llm and embedding provider? I'm getting an error when I try to run the first cell in the product brainstorming example notebook.
+
+# 2024-12-20 00:18:23.224616
++please change the names back to what they were since mistral isnt a valid model name on ollama
